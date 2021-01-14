@@ -1,6 +1,7 @@
 # Flappy-Bird-Neural-Network
 Uses NEAT (NeuroEvolution of Augmenting Topologies) to establish and train a neural network, allowing it to evolve and get further into the game. 
 Also contains additional functionality allowing the user to play and save their own highscores
+**Made by Charlie Wells**
 
 
 ## Installation
@@ -19,6 +20,3 @@ The NEAT configuration file is included in the repository.
 Information about each generation will be printed as output (either to your console or IDE).
 
 Pressing Q at any time will quit the program!
-
-
-Made by Charlie Wells
