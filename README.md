@@ -1,0 +1,23 @@
+# Flappy-Bird-Neural-Network
+Uses NEAT (NeuroEvolution of Augmenting Topologies) to establish and train a neural network, allowing it to evolve and get further into the game. 
+Also contains additional functionality allowing the user to play and save their own highscores
+
+
+## Installation
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install "python-neat" and pygame
+
+## Usage
+Download all files and ensure they are in the same directory.
+Open launching the python file you will be brought to a menu screen
+
+Pressing P will allow you to play (using space-bar to jump),
+your highscore will be saved to a file called highscore.txt and displayed upon losing
+
+Pressing W will allow you to watch the NEAT Neural Network
+The NEAT configuration file is included in the repository.
+Information about each generation will be printed as output (either to your console or IDE).
+
+Pressing Q at any time will quit the program!
+
+
+Made by Charlie Wells
