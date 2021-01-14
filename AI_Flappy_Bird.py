@@ -155,7 +155,7 @@ class Base:
         win.blit(self.IMG, (self.x2, self.y))
 
         
-def draw_window(win, birds, pipes, base, score, player_select, highscore):
+def draw_window(win, birds, pipes, base, score, player_select, highscore, isplayer):
     win.blit(BG_IMG, (0, 0))
     
     for pipe in pipes:
@@ -181,11 +181,15 @@ def draw_window(win, birds, pipes, base, score, player_select, highscore):
         text = STAT_FONT.render("Score: " + str(score), 1, (255, 255, 255))
         win.blit(text, (WIN_WIDTH - 10 - text.get_width(), 10))
 
+    if not isplayer:
+        text = STAT_FONT.render("Birds Alive: " + str(len(birds)), 1, (255, 255, 255))
+        win.blit(text, (10, 10))
+
     if highscore >= 0:
         text = STAT_FONT.render("You Scored: " + str(score), 1, (255, 255, 255))
         text_rect = text.get_rect(center=(WIN_WIDTH/2, 250))
         win.blit(text, text_rect)
-        text = STAT_FONT.render("Your Highscore is " + str(highscore), 1, (255, 255, 255))
+        text = STAT_FONT.render("Your Highscore is: " + str(highscore), 1, (255, 255, 255))
         text_rect = text.get_rect(center=(WIN_WIDTH/2, 300))
         win.blit(text, text_rect)
         text = STAT_FONT.render("Press R to return to main menu", 1, (255, 255, 255))
@@ -278,7 +282,7 @@ def neural_network(genomes, config):
                 ge.pop(x)
                 
         base.move()
-        draw_window(win, birds, pipes, base, score, False, -1)
+        draw_window(win, birds, pipes, base, score, False, -1, False)
 
 
 def setup(config_path):
@@ -342,13 +346,12 @@ def play_game():
 
         if bird.y + bird.img.get_height() >= 730:
             run = False
-            
+
         if bird.y + bird.img.get_height() <= 0:
             run = False
-
         bird.move()
         base.move()
-        draw_window(win, birds, pipes, base, score, False, -1)
+        draw_window(win, birds, pipes, base, score, False, -1, True)
 
     game_over = True
     pipes = []
@@ -386,7 +389,7 @@ def play_game():
                 return_to_menu = False
         clock.tick(30)
         base.move()
-        draw_window(win, birds, pipes, base, score, False, int(highscore))
+        draw_window(win, birds, pipes, base, score, False, int(highscore), True)
 
 
     if return_to_menu:
@@ -410,7 +413,7 @@ def player_select():
 
     while player_select:
         clock.tick(30)
-        draw_window(win, birds, pipes, base, score, True, -1)
+        draw_window(win, birds, pipes, base, score, True, -1, True)
         base.move()
         for event in pygame.event.get():
             if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_q):
