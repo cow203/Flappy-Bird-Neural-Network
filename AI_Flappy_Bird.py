@@ -342,6 +342,9 @@ def play_game():
 
         if bird.y + bird.img.get_height() >= 730:
             run = False
+            
+        if bird.y + bird.img.get_height() <= 0:
+            run = False
 
         bird.move()
         base.move()
