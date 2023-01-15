@@ -7,6 +7,7 @@ Contains additional functionality, allowing the user to play and save their own 
 
 ## Installation
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install python-neat and pygame packages
+
 Created using Python 3.8.5 and pygame 2.0.1
 
 ## Usage
